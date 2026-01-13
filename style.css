@@ -168,7 +168,38 @@ form textarea {
 form textarea {
   resize: none;
   height: 120px;
+}.footer {
+  background: #111;
+  color: #fff;
+  padding: 30px 10px;
+  text-align: center;
 }
+
+.footer-content p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.footer-content i {
+  margin-right: 10px;
+  color: #00bcd4;
+}
+
+.footer-content a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  color: #00bcd4;
+}
+
+.footer-copy {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #aaa;
+}
+
 
 /* Responsive */
 @media (max-width: 900px) {
