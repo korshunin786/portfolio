@@ -123,15 +123,17 @@ body {
 }
 
 .skill {
-  background: #020617;
-  padding: 20px;
+  background: rgba(2, 6, 23, 0.6); /* semi-transparent background */
+  backdrop-filter: blur(10px);     /* blur effect */
+  padding: 30px;
   border-radius: 14px;
-  text-align: center;       /* horizontal text alignment */
-  display: flex;            /* enable flexbox */
-  justify-content: center;  /* center horizontally */
-  align-items: center;      /* center vertically */
-  transition: transform 0.3s, background 0.3s; 
-  height: 200px;            /* set a height for vertical centering */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s, background 0.3s;
+  height: 200px;
+  box-shadow: 0 20px 40px rgba(17, 1, 65, 0.5);
 }
 
 .skill:hover {
