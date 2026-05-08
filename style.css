@@ -126,8 +126,12 @@ body {
   background: #020617;
   padding: 20px;
   border-radius: 14px;
-  text-align: center;
-  transition: transform 0.3s, background 0.3s;
+  text-align: center;       /* horizontal text alignment */
+  display: flex;            /* enable flexbox */
+  justify-content: center;  /* center horizontally */
+  align-items: center;      /* center vertically */
+  transition: transform 0.3s, background 0.3s; 
+  height: 200px;            /* set a height for vertical centering */
 }
 
 .skill:hover {
