@@ -1,121 +1,1325 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Personal Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manzoor Hussain | Professional Portfolio</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS -->
+  <link
+    href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+    rel="stylesheet"
+  />
+
+  <!-- Remix Icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter',sans-serif;
+    }
+
+    body{
+      background:#050816;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* CUSTOM COLORS */
+
+    :root{
+      --bg:#050816;
+      --primary:#2563eb;
+      --secondary:#60a5fa;
+      --card:rgba(255,255,255,0.05);
+      --border:rgba(255,255,255,0.08);
+    }
+
+    /* GRID BACKGROUND */
+
+    .grid-bg{
+      background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+      background-size:40px 40px;
+    }
+
+    /* HERO BG */
+
+    .hero-bg{
+      background:
+      radial-gradient(circle at top left, rgba(37,99,235,0.25), transparent 35%),
+      radial-gradient(circle at bottom right, rgba(96,165,250,0.15), transparent 35%),
+      #050816;
+    }
+
+    /* GLASS */
+
+    .glass{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(14px);
+    }
+
+    /* GLOW */
+
+    .blue-glow{
+      box-shadow:
+      0 0 20px rgba(37,99,235,0.35),
+      0 0 50px rgba(37,99,235,0.15);
+    }
+
+    /* FLOAT */
+
+    .float{
+      animation:float 4s ease-in-out infinite;
+    }
+
+    @keyframes float{
+
+      0%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-12px);
+      }
+
+      100%{
+        transform:translateY(0px);
+      }
+
+    }
+
+    /* TYPING */
+
+    .typing{
+      overflow:hidden;
+      white-space:nowrap;
+      border-right:3px solid #60a5fa;
+      width:0;
+      animation:
+      typing 5s steps(30) infinite alternate,
+      blink .7s infinite;
+    }
+
+    @keyframes typing{
+
+      from{
+        width:0;
+      }
+
+      to{
+        width:100%;
+      }
+
+    }
+
+    @keyframes blink{
+
+      50%{
+        border-color:transparent;
+      }
+
+    }
+
+    /* CARD HOVER */
+
+    .card-hover{
+      transition:0.4s ease;
+    }
+
+    .card-hover:hover{
+      transform:translateY(-10px);
+      border-color:rgba(96,165,250,0.4);
+
+      box-shadow:
+      0 0 25px rgba(37,99,235,0.18);
+    }
+
+    /* SECTION TITLE */
+
+    .section-subtitle{
+      color:#60a5fa;
+      letter-spacing:5px;
+      text-transform:uppercase;
+      font-size:13px;
+      font-weight:600;
+    }
+
+    .section-title{
+      font-size:50px;
+      font-weight:800;
+      margin-top:15px;
+      line-height:1.2;
+    }
+
+    @media(max-width:768px){
+
+      .section-title{
+        font-size:36px;
+      }
+
+    }
+
+    /* ========================= */
+/* HERO CARD MOTION */
+/* ========================= */
+
+.hero-card{
+  animation:heroFloat 5s ease-in-out infinite;
+  transition:
+  transform 0.4s ease,
+  box-shadow 0.4s ease,
+  border-color 0.4s ease;
+  will-change:transform;
+}
+
+/* DIFFERENT DELAYS */
+
+.hero-card-1{
+  animation-delay:0s;
+}
+
+.hero-card-2{
+  animation-delay:1s;
+}
+
+.hero-card-3{
+  animation-delay:2s;
+}
+
+/* FLOAT ANIMATION */
+
+@keyframes heroFloat{
+
+  0%{
+    transform:translateY(0px) rotate(0deg);
+  }
+
+  25%{
+    transform:translateY(-10px) rotate(1deg);
+  }
+
+  50%{
+    transform:translateY(-18px) rotate(0deg);
+  }
+
+  75%{
+    transform:translateY(-10px) rotate(-1deg);
+  }
+
+  100%{
+    transform:translateY(0px) rotate(0deg);
+  }
+
+}
+
+/* HOVER EFFECT */
+
+.hero-card:hover{
+
+  transform:
+  translateY(-12px)
+  scale(1.03);
+
+  border-color:
+  rgba(96,165,250,0.4);
+
+  box-shadow:
+  0 0 25px rgba(37,99,235,0.35),
+  0 0 60px rgba(37,99,235,0.18);
+
+}
+
+  </style>
 
 </head>
-<body>
-  <!-- Header -->
-  <header class="header">
-    <div class="logo">Portfolio</div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+
+<body class="hero-bg grid-bg">
+
+<!-- ========================= -->
+<!-- NAVBAR -->
+<!-- ========================= -->
+
+<header class="fixed top-0 left-0 w-full z-50 bg-[#050816]/80 backdrop-blur-xl border-b border-white/5">
+
+  <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+    <!-- LOGO -->
+    <a href="#" class="text-3xl font-extrabold">
+      Port<span class="text-blue-500">folio.</span>
+    </a>
+
+    <!-- MENU -->
+    <nav class="hidden lg:flex items-center gap-10 text-gray-300 font-medium">
+
+      <a href="#home" class="hover:text-blue-400 duration-300">Home</a>
+      <a href="#about" class="hover:text-blue-400 duration-300">About</a>
+      <a href="#services" class="hover:text-blue-400 duration-300">Services</a>
+      <a href="#skills" class="hover:text-blue-400 duration-300">Skills</a>
+      <a href="#resume" class="hover:text-blue-400 duration-300">Resume</a>
+      <a href="#contact" class="hover:text-blue-400 duration-300">Contact</a>
+
     </nav>
-  </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-text">
-      <h1>Hi, I'm <span>MANZOOR HUSSAIN</span></h1>
-      <h2>Master in English Literature | Public Sector Professional</h2>
-      <p>Focused on research, reporting, and policy-oriented work.</p>
-      <a href="#contact" class="btn">Contact Me</a>
-    </div>
-    <div class="hero-img">
-      <img src="image1.jpeg" alt="Profile Image" />
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>
-      I am a Master of English/ Persian Literature, with experience in teaching, data
-      handling, and official correspondence. I have worked with public sector
-      organizations and training institutions.
-    </p>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="section">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill">Noting Drafting</div>
-      <div class="skill">Office Automation</div>
-      <div class="skill">Data Entry</div>
-      <div class="skill">Web Development</div>
-      <div class="skill">DevOps</div>
-      <div class="skill">Digital Marketing</div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="project-card">Maintaining Office Activities</div>
-    <div class="project-card">Training Documentation</div>
-    <div class="project-card">Organizing workshops</div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="section">
-    <h2>Contact Me</h2>
-     <form action="https://formsubmit.co/kor.shunin786@gmail.com" method="POST">   <!--include formsubmit.co for form handling -->
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message"></textarea>
-      <button type="submit" class="btn">Send</button>
-    </form>
-  </section>
-<!-- Footer -->
-<footer class="footer">
-  <div class="footer-content">
-    <p>
-      <i class="fas fa-envelope"></i>
-      <a href="mailto:kor.shunin786@gmail.com">kor.shunin786@gmail.com</a>
-    </p>
-
-    <p>
-      <i class="fab fa-whatsapp"></i>
-      <a href="https://wa.me/923478076485" target="_blank">
-        WhatsApp: +92 347 8076485
-      </a>
-    </p>
+    <!-- BUTTON -->
+    <button class="bg-blue-600 hover:bg-blue-500 duration-300 px-7 py-3 rounded-full font-semibold blue-glow">
+      <i class="fa-solid fa-envelope mr-2"></i>
+        Contact Me
+    </button>
 
 
-    <p>
-      <i class="fab fa-github"></i>
-      <a href="https://github.com/korshunin786" target="_blank">
-        github.com/korshunin786
-      </a>
-    </p>
   </div>
 
-  <p class="footer-copy">
-    © 2026 Manzoor Hussain. All Rights Reserved.
-  </p>
+</header>
+
+<!-- ========================= -->
+<!-- HERO SECTION -->
+<!-- ========================= -->
+
+<!-- HERO SECTION -->
+<section
+  id="home"
+  class="relative min-h-screen flex items-center overflow-hidden pt-28 pb-16 px-6 lg:px-16"
+>
+
+  <!-- BACKGROUND -->
+  <div class="absolute inset-0 overflow-hidden">
+
+    <!-- GLOW 1 -->
+    <div
+      class="absolute top-[-100px] left-[-100px]
+      w-[300px] h-[300px]
+      bg-blue-500/20 blur-[120px] rounded-full"
+    ></div>
+
+    <!-- GLOW 2 -->
+    <div
+      class="absolute bottom-[-120px] right-[-120px]
+      w-[300px] h-[300px]
+      bg-sky-400/10 blur-[120px] rounded-full"
+    ></div>
+
+    <!-- GRID -->
+    <div
+      class="absolute inset-0 opacity-[0.03]"
+      style="
+        background-image:
+        linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+        background-size: 40px 40px;
+      "
+    ></div>
+
+  </div>
+
+  <!-- CONTAINER -->
+  <div
+    class="relative z-10 max-w-7xl mx-auto
+    grid lg:grid-cols-2 gap-12 items-center w-full"
+  >
+
+    <!-- LEFT SIDE -->
+    <div data-aos="fade-right">
+
+      <!-- BADGE -->
+      <div
+        class="inline-flex items-center gap-3
+        bg-white/5 border border-blue-500/20
+        px-4 py-2 rounded-full backdrop-blur-xl"
+      >
+
+        <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+
+        <p class="text-xs tracking-[3px] uppercase text-blue-300 font-medium">
+          Available For Projects
+        </p>
+
+      </div>
+
+      <!-- HEADING -->
+      <h1
+        class="text-3xl sm:text-2xl lg:text-6xl
+        font-black leading-[1.15] mt-6"
+      >
+
+        Building Modern
+
+        <span
+          class="block mt-2 text-transparent bg-clip-text
+          bg-gradient-to-r from-blue-400 via-sky-300 to-blue-600"
+        >
+          Digital Experiences
+        </span>
+
+      </h1>
+
+      <!-- NAME -->
+      <h2 class="text-xl lg:text-2xl font-semibold mt-5 text-white/90">
+
+        I'm
+
+        <span class="text-blue-400">
+          Manzoor Hussain
+        </span>
+
+      </h2>
+
+      <!-- TYPING -->
+      <div class="mt-5 h-[40px]">
+
+        <h3
+          class="typing inline-block
+          text-lg sm:text-xl lg:text-2xl
+          font-bold text-gray-200"
+        >
+
+          Full Stack Web Developer
+
+        </h3>
+
+      </div>
+
+      <!-- DESCRIPTION -->
+      <p
+        class="text-gray-400 leading-[1.8]
+        text-sm sm:text-base mt-6 max-w-2xl"
+      >
+
+        Certified in HTML, CSS, Tailwind CSS, JavaScript,
+        React, Laravel, DevOps, AI using Python,
+        Agentic AI, Office Automation and Data Management.
+
+        Providing professional services in
+        Web Development, Website Deployment,
+        Office Management and Data Solutions.
+
+      </p>
+
+      <!-- STATS -->
+      <div class="flex flex-wrap gap-6 mt-8">
+
+        <div>
+
+          <h3 class="text-2xl font-extrabold text-blue-400">
+            50+
+          </h3>
+
+          <p class="text-gray-400 text-xs mt-1">
+            Projects Completed
+          </p>
+
+        </div>
+
+        <div>
+
+          <h3 class="text-2xl font-extrabold text-blue-400">
+            100%
+          </h3>
+
+          <p class="text-gray-400 text-xs mt-1">
+            Client Satisfaction
+          </p>
+
+        </div>
+
+        <div>
+
+          <h3 class="text-2xl font-extrabold text-blue-400">
+            3+
+          </h3>
+
+          <p class="text-gray-400 text-xs mt-1">
+            Years Experience
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="flex flex-wrap gap-4 mt-10">
+
+        <button
+          class="bg-blue-600 hover:bg-blue-500
+          px-7 py-3 rounded-full
+          font-semibold text-sm
+          duration-300
+          shadow-[0_0_30px_rgba(37,99,235,0.35)]"
+        >
+
+          <span class="flex items-center gap-2">
+
+            <i class="ri-send-plane-fill"></i>
+
+            Hire Me
+
+          </span>
+
+        </button>
+
+        <button
+          class="border border-blue-500/40
+          bg-white/5 hover:bg-blue-600
+          px-7 py-3 rounded-full
+          font-semibold text-sm
+          backdrop-blur-lg duration-300"
+        >
+
+          <span class="flex items-center gap-2">
+
+            <i class="ri-folder-open-fill"></i>
+
+            View Portfolio
+
+          </span>
+
+        </button>
+
+      </div>
+
+      <!-- SOCIAL -->
+      <div class=" flex items-center gap-4 mt-10 w-full max-w-xs">
+
+        <a
+          href="#"
+          class="w-11 h-11 rounded-full
+          bg-white/5 border border-white/10
+          hover:border-blue-500 hover:bg-blue-500/10
+          flex items-center justify-center
+          text-lg duration-300"
+        >
+          <i class="ri-github-fill"></i>
+        </a>
+
+        <a
+          href="#"
+          class="w-11 h-11 rounded-full
+          bg-white/5 border border-white/10
+          hover:border-blue-500 hover:bg-blue-500/10
+          flex items-center justify-center
+          text-lg duration-300"
+        >
+          <i class="ri-linkedin-box-fill"></i>
+        </a>
+
+        <a
+          href="#"
+          class="w-11 h-11 rounded-full
+          bg-white/5 border border-white/10
+          hover:border-blue-500 hover:bg-blue-500/10
+          flex items-center justify-center
+          text-lg duration-300"
+        >
+          <i class="ri-facebook-fill"></i>
+        </a>
+
+        <a
+          href="#"
+          class="w-11 h-11 rounded-full
+          bg-white/5 border border-white/10
+          hover:border-blue-500 hover:bg-blue-500/10
+          flex items-center justify-center
+          text-lg duration-300"
+        >
+          <i class="ri-instagram-line"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div
+      class="relative flex justify-center items-center"
+      data-aos="fade-left"
+    >
+
+      <!-- GLOW -->
+      <div
+        class="absolute w-[300px] h-[300px]
+        lg:w-[460px] lg:h-[460px]
+        bg-blue-500/20 blur-[100px]
+        rounded-full"
+      ></div>
+
+      <!-- IMAGE CONTAINER -->
+      <div class="relative z-10 flex justify-center">
+
+        <!-- PROFILE IMAGE -->
+        <img
+          src="image2.png"
+          alt="Manzoor Hussain"
+          class="relative z-10
+          w-[260px] sm:w-[320px] lg:w-[390px]
+          object-contain
+          drop-shadow-[0_0_40px_rgba(37,99,235,0.45)]"
+        />
+
+        <!-- TOP CARD -->
+        <div
+          class="absolute top-[5%] right-[0%]
+          hero-card hero-card-1
+          glass px-2 py-3 rounded-2xl
+          backdrop-blur-xl border border-white/10
+          shadow-[0_10px_40px_rgba(37,99,235,0.2)]
+          z-30"
+        >
+
+          <div class="flex items-center gap-3 ">
+
+            <div
+              class="w-12 h-12 rounded-full
+              bg-blue-600 flex items-center justify-center
+              text-xl"
+            >
+
+              <i class="ri-code-s-slash-line"></i>
+
+            </div>
+
+            <div>
+
+              <h3 class="font-semibold text-sm">
+                Web Development
+              </h3>
+
+              <p class="text-gray-400 text-xs">
+                Responsive UI Design
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- BOTTOM CARD -->
+        <div
+          class="absolute bottom-[14%] left-[0%]
+          hero-card hero-card-2
+          glass px-5 py-4 rounded-2xl
+          backdrop-blur-xl border border-white/10
+          shadow-[0_10px_40px_rgba(37,99,235,0.2)]
+          z-30"
+        >
+
+          <div class="text-center">
+
+            <h2 class="text-3xl font-black text-blue-400">
+              100%
+            </h2>
+
+            <p class="text-gray-400 text-xs mt-1">
+              Client Satisfaction
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- SMALL CENTER CARD -->
+        <div
+          class="absolute bottom-[28%] right-[12%]
+          hero-card hero-card-3
+          glass px-3 py-2 rounded-xl
+          flex items-center gap-2
+          backdrop-blur-xl border border-white/10
+          z-30"
+        >
+
+          <div
+            class="w-9 h-9 rounded-full
+            bg-blue-500/10 text-blue-400
+            flex items-center justify-center"
+          >
+
+            <i class="ri-reactjs-line"></i>
+
+          </div>
+
+          <div>
+
+            <h4 class="font-semibold text-xs">
+              React & Laravel
+            </h4>
+
+            <p class="text-[10px] text-gray-400">
+              Full Stack
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- ABOUT SECTION -->
+<!-- ========================= -->
+
+<section id="about" class="py-24 px-6 lg:px-16">
+
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+
+    <!-- IMAGE -->
+
+    <div data-aos="fade-right">
+
+      <div class="glass rounded-3xl overflow-hidden p-4">
+
+        <img
+          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200"
+          class="rounded-2xl"
+        />
+
+      </div>
+
+    </div>
+
+    <!-- CONTENT -->
+
+    <div data-aos="fade-left">
+
+      <p class="section-subtitle">
+        About Me
+      </p>
+
+      <h2 class="section-title">
+        Professional Web Developer & AI Enthusiast
+      </h2>
+
+      <p class="text-gray-400 leading-relaxed mt-8 text-lg">
+
+        I'm Manzoor Hussain, a passionate developer and technology enthusiast
+        focused on creating modern digital experiences.
+
+        I specialize in frontend development, Laravel applications,
+        DevOps workflows, office automation and AI-powered solutions.
+
+        My goal is to build scalable, responsive and high-performance systems
+        that help businesses grow professionally online.
+
+      </p>
+
+      <!-- INFO -->
+
+      <div class="grid sm:grid-cols-2 gap-6 mt-10">
+
+        <div class="glass rounded-2xl p-5">
+          <h4 class="font-semibold text-blue-400 mb-2">Experience</h4>
+          <p class="text-gray-400">Professional Web Solutions</p>
+        </div>
+
+        <div class="glass rounded-2xl p-5">
+          <h4 class="font-semibold text-blue-400 mb-2">Specialization</h4>
+          <p class="text-gray-400">React • Laravel • DevOps</p>
+        </div>
+
+        <div class="glass rounded-2xl p-5">
+          <h4 class="font-semibold text-blue-400 mb-2">Services</h4>
+          <p class="text-gray-400">Deployment & Automation</p>
+        </div>
+
+        <div class="glass rounded-2xl p-5">
+          <h4 class="font-semibold text-blue-400 mb-2">Availability</h4>
+          <p class="text-gray-400">Freelance & Remote Work</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- SERVICES -->
+<!-- ========================= -->
+
+<section id="services" class="py-24 px-6 lg:px-16">
+
+  <div class="max-w-7xl mx-auto">
+
+    <div class="text-center">
+
+      <p class="section-subtitle">
+        My Services
+      </p>
+
+      <h2 class="section-title">
+        Professional Services I Provide
+      </h2>
+
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+
+      <!-- CARD -->
+
+      <div class="glass rounded-3xl p-8 card-hover">
+
+        <div class="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-3xl">
+
+          <i class="ri-code-box-fill"></i>
+
+        </div>
+
+        <h3 class="text-2xl font-bold mt-6">
+          Web Development
+        </h3>
+
+        <p class="text-gray-400 mt-4 leading-relaxed">
+
+          Modern responsive websites using HTML, CSS, Tailwind CSS,
+          JavaScript, React and Laravel.
+
+        </p>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="glass rounded-3xl p-8 card-hover">
+
+        <div class="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-3xl">
+
+          <i class="ri-layout-4-fill"></i>
+
+        </div>
+
+        <h3 class="text-2xl font-bold mt-6">
+          Website Design
+        </h3>
+
+        <p class="text-gray-400 mt-4 leading-relaxed">
+
+          Professional UI/UX designs with modern layouts,
+          animations and clean user experiences.
+
+        </p>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="glass rounded-3xl p-8 card-hover">
+
+        <div class="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-3xl">
+
+          <i class="ri-server-fill"></i>
+
+        </div>
+
+        <h3 class="text-2xl font-bold mt-6">
+          Web Deployment
+        </h3>
+
+        <p class="text-gray-400 mt-4 leading-relaxed">
+
+          Deployment, hosting setup, CI/CD pipelines,
+          Linux server management and DevOps solutions.
+
+        </p>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="glass rounded-3xl p-8 card-hover">
+
+        <div class="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-3xl">
+
+          <i class="ri-database-2-fill"></i>
+
+        </div>
+
+        <h3 class="text-2xl font-bold mt-6">
+          Data Management
+        </h3>
+
+        <p class="text-gray-400 mt-4 leading-relaxed">
+
+          Data entry operations, office automation,
+          reporting systems and database organization.
+
+        </p>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="glass rounded-3xl p-8 card-hover">
+
+        <div class="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-3xl">
+
+          <i class="ri-robot-2-fill"></i>
+
+        </div>
+
+        <h3 class="text-2xl font-bold mt-6">
+          AI Solutions
+        </h3>
+
+        <p class="text-gray-400 mt-4 leading-relaxed">
+
+          AI using Python, automation systems,
+          intelligent workflows and Agentic AI applications.
+
+        </p>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="glass rounded-3xl p-8 card-hover">
+
+        <div class="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-3xl">
+
+          <i class="ri-briefcase-4-fill"></i>
+
+        </div>
+
+        <h3 class="text-2xl font-bold mt-6">
+          Office Automation
+        </h3>
+
+        <p class="text-gray-400 mt-4 leading-relaxed">
+
+          Professional office management systems,
+          automation workflows and productivity solutions.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- SKILLS -->
+<!-- ========================= -->
+
+<section id="skills" class="py-24 px-6 lg:px-16">
+
+  <div class="max-w-7xl mx-auto">
+
+    <div class="text-center">
+
+      <p class="section-subtitle">
+        My Skills
+      </p>
+
+      <h2 class="section-title">
+        Technologies I Work With
+      </h2>
+
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mt-16">
+
+      <!-- SKILL -->
+
+      <div class="glass rounded-3xl p-8 text-center card-hover">
+
+        <i class="fa-brands fa-html5 text-6xl text-orange-500"></i>
+
+        <h3 class="text-3xl font-bold mt-5">
+          95%
+        </h3>
+
+        <p class="text-gray-400 mt-2">
+          HTML5
+        </p>
+
+      </div>
+
+      <div class="glass rounded-3xl p-8 text-center card-hover">
+
+        <i class="fa-brands fa-css3-alt text-6xl text-blue-400"></i>
+
+        <h3 class="text-3xl font-bold mt-5">
+          92%
+        </h3>
+
+        <p class="text-gray-400 mt-2">
+          CSS3
+        </p>
+
+      </div>
+
+      <div class="glass rounded-3xl p-8 text-center card-hover">
+
+        <i class="fa-brands fa-js text-6xl text-yellow-400"></i>
+
+        <h3 class="text-3xl font-bold mt-5">
+          90%
+        </h3>
+
+        <p class="text-gray-400 mt-2">
+          JavaScript
+        </p>
+
+      </div>
+
+      <div class="glass rounded-3xl p-8 text-center card-hover">
+
+        <i class="fa-brands fa-react text-6xl text-cyan-400"></i>
+
+        <h3 class="text-3xl font-bold mt-5">
+          88%
+        </h3>
+
+        <p class="text-gray-400 mt-2">
+          React
+        </p>
+
+      </div>
+
+      <div class="glass rounded-3xl p-8 text-center card-hover">
+
+        <i class="fa-brands fa-laravel text-6xl text-red-500"></i>
+
+        <h3 class="text-3xl font-bold mt-5">
+          87%
+        </h3>
+
+        <p class="text-gray-400 mt-2">
+          Laravel
+        </p>
+
+      </div>
+
+      <div class="glass rounded-3xl p-8 text-center card-hover">
+
+        <i class="fa-brands fa-python text-6xl text-blue-400"></i>
+
+        <h3 class="text-3xl font-bold mt-5">
+          85%
+        </h3>
+
+        <p class="text-gray-400 mt-2">
+          Python AI
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- RESUME -->
+<!-- ========================= -->
+
+<section id="resume" class="py-24 px-6 lg:px-16">
+
+  <div class="max-w-7xl mx-auto">
+
+    <div class="text-center">
+
+      <p class="section-subtitle">
+        Resume
+      </p>
+
+      <h2 class="section-title">
+        Education & Experience
+      </h2>
+
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-10 mt-16">
+
+      <!-- EDUCATION -->
+
+      <div class="glass rounded-3xl p-10">
+
+        <h3 class="text-3xl font-bold mb-10 text-blue-400">
+          Education
+        </h3>
+
+        <div class="space-y-10">
+
+          <div>
+
+            <h4 class="text-xl font-bold">
+              Certified Web Development
+            </h4>
+
+            <p class="text-gray-400 mt-2">
+              HTML • CSS • Tailwind CSS • JavaScript • React
+            </p>
+
+          </div>
+
+          <div>
+
+            <h4 class="text-xl font-bold">
+              Laravel & DevOps
+            </h4>
+
+            <p class="text-gray-400 mt-2">
+              Deployment • Linux • CI/CD • Hosting
+            </p>
+
+          </div>
+
+          <div>
+
+            <h4 class="text-xl font-bold">
+              AI & Automation
+            </h4>
+
+            <p class="text-gray-400 mt-2">
+              Python AI • Agentic AI • Automation Systems
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- EXPERIENCE -->
+
+      <div class="glass rounded-3xl p-10">
+
+        <h3 class="text-3xl font-bold mb-10 text-blue-400">
+          Experience
+        </h3>
+
+        <div class="space-y-10">
+
+          <div>
+
+            <h4 class="text-xl font-bold">
+              Full Stack Web Developer
+            </h4>
+
+            <p class="text-gray-400 mt-2">
+              Responsive websites & web applications
+            </p>
+
+          </div>
+
+          <div>
+
+            <h4 class="text-xl font-bold">
+              Office & Data Management
+            </h4>
+
+            <p class="text-gray-400 mt-2">
+              Office automation & reporting systems
+            </p>
+
+          </div>
+
+          <div>
+
+            <h4 class="text-xl font-bold">
+              AI Automation Specialist
+            </h4>
+
+            <p class="text-gray-400 mt-2">
+              Python AI workflows & Agentic AI systems
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- CONTACT -->
+<!-- ========================= -->
+
+<section id="contact" class="py-24 px-6 lg:px-16">
+
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+
+    <!-- LEFT -->
+
+    <div>
+
+      <p class="section-subtitle">
+        Contact Me
+      </p>
+
+      <h2 class="section-title">
+        Let's Work Together
+      </h2>
+
+      <p class="text-gray-400 mt-8 leading-relaxed text-lg">
+
+        Have a project idea or need professional web solutions?
+        Feel free to contact me for web development,
+        deployment, office automation and AI services.
+
+      </p>
+
+      <!-- CONTACT ITEMS -->
+
+      <div class="space-y-6 mt-10">
+
+        <div class="glass rounded-2xl p-6 flex items-center gap-5">
+
+          <div class="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center text-2xl">
+
+            <i class="fa-solid fa-phone"></i>
+
+          </div>
+
+          <div>
+
+            <h4 class="font-semibold text-xl">
+              Phone
+            </h4>
+
+            <p class="text-gray-400">
+              +92 347 8076485
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="glass rounded-2xl p-6 flex items-center gap-5">
+
+          <div class="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center text-2xl">
+
+            <i class="fa-solid fa-envelope"></i>
+
+          </div>
+
+          <div>
+
+            <h4 class="font-semibold text-xl">
+              Email
+            </h4>
+
+            <p class="text-gray-400">
+              yourmail@example.com
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- FORM -->
+
+    <form action="https://formsubmit.co/kor.shunin786@gmail.com" method="POST">
+      <div class="glass rounded-3xl p-8">
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <input
+          type="text"
+          placeholder="Your Name"
+          class="bg-[#0f172a] border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-blue-500"
+        />
+
+        <input
+          type="email"
+          placeholder="Your Email"
+          class="bg-[#0f172a] border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-blue-500"
+        />
+
+      </div>
+
+      <input
+        type="text"
+        placeholder="Subject"
+        class="w-full mt-6 bg-[#0f172a] border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-blue-500"
+      />
+
+      <textarea
+        rows="6"
+        placeholder="Your Message"
+        class="w-full mt-6 bg-[#0f172a] border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-blue-500"
+      ></textarea>
+
+      <button class="mt-8 bg-blue-600 hover:bg-blue-500 duration-300 px-10 py-4 rounded-full font-semibold blue-glow">
+
+        Send Message
+
+      </button>
+
+      </div>
+    </form>
+
+  </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+<footer class="border-t border-white/5 py-8 text-center text-gray-500">
+
+  © 2025 Manzoor Hussain — All Rights Reserved.
+
 </footer>
-  Dialogflow ES, First-create Integration, 
 
-      <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-        <df-messenger
-          intent="WELCOME"
-          chat-icon="icon-img.png"
-          chat-title="Portfolio"
-          agent-id="73bf9ee5-ea48-4a91-82c1-9df5d293cb28"
-          language-code="en"
-        ></df-messenger>
+<!-- AOS -->
 
-  <script src="script.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+  AOS.init({
+    duration:1200,
+    once:false
+  });
+
+</script>
+
 </body>
 </html>
