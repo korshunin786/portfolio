@@ -34,6 +34,10 @@
 
   <style>
 
+     html {
+    scroll-behavior: smooth;
+  }
+
     *{
       margin:0;
       padding:0;
@@ -254,8 +258,68 @@
   0 0 60px rgba(37,99,235,0.18);
 
 }
+  /* Navbar Hover effect */
+
+nav a{
+  position:relative;
+}
+
+nav a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0%;
+  height:2px;
+  background:#60a5fa;
+  transition:0.3s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
 
   </style>
+  <!-- SCROLL TOP BUTTON -->
+
+<button
+  id="scrollTopBtn"
+  class="fixed bottom-6 right-6 w-12 h-12 rounded-full
+  bg-blue-600 text-white text-xl hidden
+  items-center justify-center z-50 shadow-lg"
+>
+
+  <i class="ri-arrow-up-line"></i>
+
+</button>
+
+  <!-- Add Scroll to the top button -->
+<script>
+
+const scrollBtn = document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll", () => {
+
+  if(window.scrollY > 300){
+    scrollBtn.classList.remove("hidden");
+    scrollBtn.classList.add("flex");
+  }else{
+    scrollBtn.classList.add("hidden");
+    scrollBtn.classList.remove("flex");
+  }
+
+});
+
+scrollBtn.addEventListener("click", () => {
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+});
+
+</script>
 
 </head>
 
@@ -280,26 +344,25 @@
       <a href="#home" class="hover:text-blue-400 duration-300">Home</a>
       <a href="#about" class="hover:text-blue-400 duration-300">About</a>
       <a href="#services" class="hover:text-blue-400 duration-300">Services</a>
+      <a href="#portfolio" class="hover:text-blue-400 duration-300">Portfolio</a>
       <a href="#skills" class="hover:text-blue-400 duration-300">Skills</a>
       <a href="#resume" class="hover:text-blue-400 duration-300">Resume</a>
-      <a href="#contact" class="hover:text-blue-400 duration-300">Contact</a>
+      <a href="#contact-form" class="hover:text-blue-400 duration-300">Contact</a>
 
     </nav>
 
     <!-- BUTTON -->
-    <button class="bg-blue-600 hover:bg-blue-500 duration-300 px-7 py-3 rounded-full font-semibold blue-glow">
+    <a href="#contact-form" class="bg-blue-600 hover:bg-blue-500 duration-300 px-7 py-3 rounded-full font-semibold blue-glow text-white inline-flex items-center">
       <i class="fa-solid fa-envelope mr-2"></i>
-        Contact Me
-    </button>
+      Contact Me
+    </a>  
+
 
 
   </div>
 
 </header>
 
-<!-- ========================= -->
-<!-- HERO SECTION -->
-<!-- ========================= -->
 
 <!-- HERO SECTION -->
 <section
@@ -363,18 +426,21 @@
 
       <!-- HEADING -->
       <h1
-        class="text-3xl sm:text-2xl lg:text-6xl
+        class="text-4xl sm:text-5xl lg:text-6xl
         font-black leading-[1.15] mt-6"
       >
 
         Building Modern
 
         <span
-          class="block mt-2 text-transparent bg-clip-text
-          bg-gradient-to-r from-blue-400 via-sky-300 to-blue-600"
+          class="block mt-3 text-transparent bg-clip-text
+          bg-gradient-to-r from-blue-400 via-sky-300 to-blue-600
+          text-4xl leading-relaxed"
         >
           Digital Experiences
         </span>
+
+
 
       </h1>
 
@@ -464,41 +530,39 @@
       <!-- BUTTONS -->
       <div class="flex flex-wrap gap-4 mt-10">
 
-        <button
+        <!-- HIRE ME -->
+        <a
+          href="#contact-form"
           class="bg-blue-600 hover:bg-blue-500
           px-7 py-3 rounded-full
           font-semibold text-sm
           duration-300
-          shadow-[0_0_30px_rgba(37,99,235,0.35)]"
+          shadow-[0_0_30px_rgba(37,99,235,0.35)]
+          inline-flex items-center gap-2"
         >
 
-          <span class="flex items-center gap-2">
+          <i class="ri-send-plane-fill"></i>
 
-            <i class="ri-send-plane-fill"></i>
+          Hire Me
 
-            Hire Me
+        </a>
 
-          </span>
-
-        </button>
-
-        <button
+        <!-- VIEW PORTFOLIO -->
+        <a
+          href="#portfolio"
           class="border border-blue-500/40
           bg-white/5 hover:bg-blue-600
           px-7 py-3 rounded-full
           font-semibold text-sm
-          backdrop-blur-lg duration-300"
+          backdrop-blur-lg duration-300
+          inline-flex items-center gap-2"
         >
 
-          <span class="flex items-center gap-2">
+          <i class="ri-folder-open-fill"></i>
 
-            <i class="ri-folder-open-fill"></i>
+          View Portfolio
 
-            View Portfolio
-
-          </span>
-
-        </button>
+        </a>
 
       </div>
 
@@ -506,7 +570,7 @@
       <div class=" flex items-center gap-4 mt-10 w-full max-w-xs">
 
         <a
-          href="#"
+          href="https://github.com/korshunin786"
           class="w-11 h-11 rounded-full
           bg-white/5 border border-white/10
           hover:border-blue-500 hover:bg-blue-500/10
@@ -517,7 +581,7 @@
         </a>
 
         <a
-          href="#"
+          href="https://linkedin.com/in/manzoor-hussain-3b6995407" 
           class="w-11 h-11 rounded-full
           bg-white/5 border border-white/10
           hover:border-blue-500 hover:bg-blue-500/10
@@ -528,7 +592,7 @@
         </a>
 
         <a
-          href="#"
+          href="https://facebook.com/manzoor.hussain.7" 
           class="w-11 h-11 rounded-full
           bg-white/5 border border-white/10
           hover:border-blue-500 hover:bg-blue-500/10
@@ -539,7 +603,7 @@
         </a>
 
         <a
-          href="#"
+          href="https://instagram.com/manzoorkhussain"
           class="w-11 h-11 rounded-full
           bg-white/5 border border-white/10
           hover:border-blue-500 hover:bg-blue-500/10
@@ -788,7 +852,7 @@
 
       <!-- CARD -->
 
-      <div class="glass rounded-3xl p-8 card-hover">
+      <div class="glass rounded-3xl p-8 card-hover"  data-aos="zoom-in">
 
         <div class="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-3xl">
 
@@ -811,7 +875,7 @@
 
       <!-- CARD -->
 
-      <div class="glass rounded-3xl p-8 card-hover">
+      <div class="glass rounded-3xl p-8 card-hover"  data-aos="zoom-in">
 
         <div class="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-3xl">
 
@@ -834,7 +898,7 @@
 
       <!-- CARD -->
 
-      <div class="glass rounded-3xl p-8 card-hover">
+      <div class="glass rounded-3xl p-8 card-hover"  data-aos="zoom-in">
 
         <div class="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-3xl">
 
@@ -857,7 +921,7 @@
 
       <!-- CARD -->
 
-      <div class="glass rounded-3xl p-8 card-hover">
+      <div class="glass rounded-3xl p-8 card-hover"  data-aos="zoom-in">
 
         <div class="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-3xl">
 
@@ -880,7 +944,7 @@
 
       <!-- CARD -->
 
-      <div class="glass rounded-3xl p-8 card-hover">
+      <div class="glass rounded-3xl p-8 card-hover"  data-aos="zoom-in">
 
         <div class="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-3xl">
 
@@ -903,7 +967,7 @@
 
       <!-- CARD -->
 
-      <div class="glass rounded-3xl p-8 card-hover">
+      <div class="glass rounded-3xl p-8 card-hover"  data-aos="zoom-in">
 
         <div class="w-16 h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-3xl">
 
@@ -921,6 +985,227 @@
           automation workflows and productivity solutions.
 
         </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PORTFOLIO -->
+<!-- ========================= -->
+
+<section id="portfolio" class="py-24 px-6 lg:px-16">
+
+  <div class="max-w-7xl mx-auto">
+
+    <!-- TITLE -->
+    <div class="text-center">
+
+      <p class="section-subtitle">
+        My Portfolio
+      </p>
+
+      <h2 class="section-title">
+        Recent Projects & Case Studies
+      </h2>
+
+    </div>
+
+    <!-- PROJECT GRID -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+
+      <!-- PROJECT 1 -->
+      <div
+        class="glass rounded-3xl overflow-hidden card-hover"
+        data-aos="zoom-in"
+      >
+
+        <!-- IMAGE -->
+        <img
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200"
+          class="w-full h-56 object-cover"
+          alt="Connect Job"
+        />
+
+        <!-- CONTENT -->
+        <div class="p-6">
+
+          <h3 class="text-2xl font-bold">
+            Connect Job
+          </h3>
+
+          <p class="text-gray-400 mt-3 leading-relaxed">
+
+            Professional job connection platform for employers
+            and job seekers with modern responsive UI
+            and smart hiring features.
+
+          </p>
+
+          <!-- TECH STACK -->
+          <div class="flex flex-wrap gap-2 mt-5">
+
+            <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 text-xs">
+              Job Portal
+            </span>
+
+            <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs">
+              Responsive UI
+            </span>
+
+            <span class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-300 text-xs">
+              Web App
+            </span>
+
+          </div>
+
+          <!-- BUTTON -->
+          <a
+            href="https://connectjobb.netlify.app/"
+            target="_blank"
+            class="inline-flex items-center gap-2 mt-6
+            text-blue-400 hover:text-blue-300 duration-300 font-medium"
+          >
+
+            View Live Project
+
+            <i class="ri-arrow-right-up-line"></i>
+
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div
+        class="glass rounded-3xl overflow-hidden card-hover"
+        data-aos="zoom-in"
+        data-aos-delay="100"
+      >
+
+        <!-- IMAGE -->
+        <img
+          src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1200"
+          class="w-full h-56 object-cover"
+          alt="Salon Shop"
+        />
+
+        <!-- CONTENT -->
+        <div class="p-6">
+
+          <h3 class="text-2xl font-bold">
+            Salon Shop
+          </h3>
+
+          <p class="text-gray-400 mt-3 leading-relaxed">
+
+            Modern salon booking and beauty services website
+            with elegant UI design, responsive layouts
+            and appointment management features.
+
+          </p>
+
+          <!-- TECH STACK -->
+          <div class="flex flex-wrap gap-2 mt-5">
+
+            <span class="px-3 py-1 rounded-full bg-pink-500/10 text-pink-300 text-xs">
+              Beauty Services
+            </span>
+
+            <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 text-xs">
+              Booking System
+            </span>
+
+            <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs">
+              Responsive UI
+            </span>
+
+          </div>
+
+          <!-- BUTTON -->
+          <a
+            href="https://salonsho.netlify.app/"
+            target="_blank"
+            class="inline-flex items-center gap-2 mt-6
+            text-blue-400 hover:text-blue-300 duration-300 font-medium"
+          >
+
+            View Live Project
+
+            <i class="ri-arrow-right-up-line"></i>
+
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div
+        class="glass rounded-3xl overflow-hidden card-hover"
+        data-aos="zoom-in"
+        data-aos-delay="200"
+      >
+
+        <!-- IMAGE -->
+        <img
+          src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1200"
+          class="w-full h-56 object-cover"
+          alt="AI Salon Appointment"
+        />
+
+        <!-- CONTENT -->
+        <div class="p-6">
+
+          <h3 class="text-2xl font-bold">
+            AI Salon Appointment
+          </h3>
+
+          <p class="text-gray-400 mt-3 leading-relaxed">
+
+            Smart AI-powered salon appointment booking platform
+            with beauty service management, responsive design
+            and automated scheduling system.
+
+          </p>
+
+          <!-- TECH STACK -->
+          <div class="flex flex-wrap gap-2 mt-5">
+
+            <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 text-xs">
+              AI
+            </span>
+
+            <span class="px-3 py-1 rounded-full bg-pink-500/10 text-pink-300 text-xs">
+              Salon Booking
+            </span>
+
+            <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 text-xs">
+              Responsive UI
+            </span>
+
+          </div>
+
+          <!-- BUTTON -->
+          <a
+            href="https://aiappointmen.netlify.app/"
+            target="_blank"
+            class="inline-flex items-center gap-2 mt-6
+            text-blue-400 hover:text-blue-300 duration-300 font-medium"
+          >
+
+            View Live Project
+
+            <i class="ri-arrow-right-up-line"></i>
+
+          </a>
+
+        </div>
 
       </div>
 
@@ -954,7 +1239,7 @@
 
       <!-- SKILL -->
 
-      <div class="glass rounded-3xl p-8 text-center card-hover">
+      <div class="glass rounded-3xl p-8 text-center card-hover"  data-aos="zoom-in">
 
         <i class="fa-brands fa-html5 text-6xl text-orange-500"></i>
 
@@ -968,7 +1253,7 @@
 
       </div>
 
-      <div class="glass rounded-3xl p-8 text-center card-hover">
+      <div class="glass rounded-3xl p-8 text-center card-hover"  data-aos="zoom-in">
 
         <i class="fa-brands fa-css3-alt text-6xl text-blue-400"></i>
 
@@ -982,7 +1267,7 @@
 
       </div>
 
-      <div class="glass rounded-3xl p-8 text-center card-hover">
+      <div class="glass rounded-3xl p-8 text-center card-hover"  data-aos="zoom-in">
 
         <i class="fa-brands fa-js text-6xl text-yellow-400"></i>
 
@@ -996,7 +1281,7 @@
 
       </div>
 
-      <div class="glass rounded-3xl p-8 text-center card-hover">
+      <div class="glass rounded-3xl p-8 text-center card-hover"  data-aos="zoom-in">
 
         <i class="fa-brands fa-react text-6xl text-cyan-400"></i>
 
@@ -1010,7 +1295,7 @@
 
       </div>
 
-      <div class="glass rounded-3xl p-8 text-center card-hover">
+      <div class="glass rounded-3xl p-8 text-center card-hover"  data-aos="zoom-in">
 
         <i class="fa-brands fa-laravel text-6xl text-red-500"></i>
 
@@ -1024,7 +1309,7 @@
 
       </div>
 
-      <div class="glass rounded-3xl p-8 text-center card-hover">
+      <div class="glass rounded-3xl p-8 text-center card-hover"  data-aos="zoom-in">
 
         <i class="fa-brands fa-python text-6xl text-blue-400"></i>
 
@@ -1064,7 +1349,7 @@
 
     </div>
 
-    <div class="grid lg:grid-cols-2 gap-10 mt-16">
+    <div class="grid lg:grid-cols-2 gap-10 mt-16"  data-aos="zoom-in">
 
       <!-- EDUCATION -->
 
@@ -1254,44 +1539,65 @@
 
     <!-- FORM -->
 
-    <form action="https://formsubmit.co/kor.shunin786@gmail.com" method="POST">
+    <form
+      id="contact-form"
+      action="https://formsubmit.co/kor.shunin786@gmail.com"
+      method="POST"
+    >
+
       <div class="glass rounded-3xl p-8">
 
-      <div class="grid md:grid-cols-2 gap-6">
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+            class="bg-[#0f172a] border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-blue-500"
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+            class="bg-[#0f172a] border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-blue-500"
+          />
+
+        </div>
 
         <input
           type="text"
-          placeholder="Your Name"
-          class="bg-[#0f172a] border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-blue-500"
+          name="subject"
+          placeholder="Subject"
+          required
+          class="w-full mt-6 bg-[#0f172a] border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-blue-500"
         />
 
-        <input
-          type="email"
-          placeholder="Your Email"
-          class="bg-[#0f172a] border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-blue-500"
-        />
+        <textarea
+          rows="6"
+          name="message"
+          placeholder="Your Message"
+          required
+          class="w-full mt-6 bg-[#0f172a] border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-blue-500"
+        ></textarea>
+
+        <!-- OPTIONAL -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+
+        <button
+          type="submit"
+          class="mt-8 bg-blue-600 hover:bg-blue-500 duration-300 px-10 py-4 rounded-full font-semibold blue-glow"
+        >
+
+          Send Message
+
+        </button>
 
       </div>
 
-      <input
-        type="text"
-        placeholder="Subject"
-        class="w-full mt-6 bg-[#0f172a] border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-blue-500"
-      />
-
-      <textarea
-        rows="6"
-        placeholder="Your Message"
-        class="w-full mt-6 bg-[#0f172a] border border-white/10 rounded-xl px-5 py-4 outline-none focus:border-blue-500"
-      ></textarea>
-
-      <button class="mt-8 bg-blue-600 hover:bg-blue-500 duration-300 px-10 py-4 rounded-full font-semibold blue-glow">
-
-        Send Message
-
-      </button>
-
-      </div>
     </form>
 
   </div>
